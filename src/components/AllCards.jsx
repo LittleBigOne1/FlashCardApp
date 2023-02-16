@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
 export default function AllCards() {
@@ -6,9 +6,9 @@ export default function AllCards() {
   const navigate = useNavigate();
   // console.log(cards);
   return (
-    <div className='createcard'>
+    <div className="createcard">
       <Link to={'/createcard'}>Create a card</Link>
-      {cards !== null ?
+      {cards !== null ? (
         cards.map((card) => {
           return (
             <div
@@ -18,7 +18,10 @@ export default function AllCards() {
               <div>{card['question']}</div>
             </div>
           );
-        }): <div>Create your first card !</div>}
+        })
+      ) : (
+        <div>Create your first card !</div>
+      )}
     </div>
   );
 }
